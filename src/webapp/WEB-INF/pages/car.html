@@ -10,9 +10,19 @@
 <body>
 <h1 th:text="${cars}"/>
 <table class="table table-dark">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Car Model</th>
+        <th scope="col">Car Number</th>
+        <th scope="col">Car Colour</th>
+    </tr>
     <tbody>
     <tr th:each="car: ${carlist}">
-        <td th:text="${car}"/>
+        <td th:utext="${carlist.indexOf(car) + 1}"></td>
+        <td th:utext="${car.getModel()}"></td>
+        <td th:utext="${car.getCarNumber()}"></td>
+        <td th:utext="${car.getCarColour()}"></td>
     </tr>
     </tbody>
 </table>

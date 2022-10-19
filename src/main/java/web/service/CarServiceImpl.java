@@ -12,12 +12,8 @@ public class CarServiceImpl implements CarService{
     }
 
     @Override
-    public List<String> showCars(List<Car> cars, int carNumber) {
-        List <String> strings = new ArrayList<>();
+    public List<Car> showCars(List<Car> cars, int carNumber) {
         List <Car> tmp = new ArrayList<>(cars.subList(0, carNumber));
-        for (Car car : tmp) {
-            strings.add(car.toString());
-        }
-        return strings;
+        return new ArrayList<>(tmp);
     }
 }

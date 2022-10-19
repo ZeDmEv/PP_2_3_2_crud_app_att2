@@ -1,5 +1,7 @@
 package web.model;
 
+import java.util.Objects;
+
 public class Car {
     private String model;
     private int carNumber;
@@ -37,6 +39,19 @@ public class Car {
 
     public void setCarColour(String carColour) {
         this.carColour = carColour;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return carNumber == car.carNumber && Objects.equals(model, car.model) && Objects.equals(carColour, car.carColour);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(model, carNumber, carColour);
     }
 
     @Override

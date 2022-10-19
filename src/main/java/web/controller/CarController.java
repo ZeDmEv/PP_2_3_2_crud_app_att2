@@ -8,7 +8,6 @@ import web.model.Car;
 import web.service.CarService;
 import web.service.CarServiceImpl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
