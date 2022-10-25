@@ -8,10 +8,11 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-<form th:action="@{/edit}" th:object="${user}" method="POST">
+<body style="background-color: #15151e">
+<form th:action="@{/edit}" th:object="${editeduser}" method="POST">
     <table>
         <tr>
-            <td><input type="hidden" th:field="${user.id}"/></td>
+            <td><input type="hidden" th:field="${editeduser.id}"/></td>
         </tr>
         <tr>
             <td><label id="user-name">User Name</label></td>

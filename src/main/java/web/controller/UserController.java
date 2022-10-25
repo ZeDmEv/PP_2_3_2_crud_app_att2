@@ -6,14 +6,12 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import web.model.User;
 import web.service.UserService;
-import web.service.UserServiceImpl;
-
-import java.util.List;
 import java.util.logging.Logger;
 
 @Controller
 public class UserController {
-    private Logger logger = Logger.getLogger("UserController");
+
+    private static Logger log = Logger.getLogger(UserController.class.getName());
     private UserService userService;
 
     @Autowired
@@ -28,13 +26,13 @@ public class UserController {
     }
 
     @GetMapping(value = "/edit/{id}")
-    public String show(@PathVariable("id") long id, ModelMap model) {
-        model.addAttribute("user", userService.getById(id));
+    public String editUser(@PathVariable("id") long id, ModelMap model) {
+        model.addAttribute("editeduser", userService.getById(id));
         return "edituser";
     }
 
     @PostMapping(value = "/edit")
-    public String edit(@ModelAttribute("user") User user) {
+    public String edit(@ModelAttribute("editeduser") User user) {
         userService.edit(user);
         return "redirect:/";
     }
@@ -47,7 +45,7 @@ public class UserController {
 
 
     @PostMapping(value = "/add")
-    public String add(@ModelAttribute("adduser") User user) {
+    public String add(@ModelAttribute("user") User user) {
         userService.add(user);
         return "redirect:/";
     }
